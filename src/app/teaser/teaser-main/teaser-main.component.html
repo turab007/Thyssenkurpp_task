@@ -1,0 +1,12 @@
+<p>teaser-main works!</p>
+<input
+  type="text"
+  [value]="searchField"
+  [formControl]="searchFireldFormControl"
+/>
+<ng-container *ngFor="let item of teasers">
+  <div>
+    {{ item.heading }}
+    {{ item.image }}
+  </div>
+</ng-container>

@@ -1,12 +1,30 @@
-<p>teaser-main works!</p>
+<h1>Entdecken Sie weitere Stories von thyssenkrupp</h1>
+<div>
+  <form [formGroup]="dateFilterForm" (ngSubmit)="searchByDate()">
+    <input formControlName="dateFrom" type="date" />
+    <input formControlName="dateTo" type="date" />
+    <button type="submit">Search</button>
+  </form>
+</div>
 <input
   type="text"
   [value]="searchField"
   [formControl]="searchFireldFormControl"
 />
-<ng-container *ngFor="let item of teasers">
-  <div>
-    {{ item.heading }}
-    {{ item.image }}
-  </div>
-</ng-container>
+<div id="containerDiv">
+  <ng-container *ngFor="let item of teasers">
+    <div class="teaserDiv">
+      <img [src]="item.image" />
+      <h4>
+        {{ item.heading }}
+      </h4>
+      <span>
+        {{ item.text }}
+      </span>
+
+      <div>
+        <span>{{ item.date }}</span>
+      </div>
+    </div>
+  </ng-container>
+</div>

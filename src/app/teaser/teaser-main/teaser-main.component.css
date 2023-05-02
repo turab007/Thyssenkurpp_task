@@ -1,0 +1,16 @@
+.teaserDiv {
+  max-width: 200px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+img {
+  width: 200px;
+}
+
+ #containerDiv
+{
+  display: flex;
+  flex-wrap: wrap;
+}

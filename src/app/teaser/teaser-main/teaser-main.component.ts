@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 import teasers from '../teaser.json';
+
 @Component({
   selector: 'app-teaser-main',
   templateUrl: './teaser-main.component.html',
@@ -12,11 +13,16 @@ export class TeaserMainComponent implements OnInit {
   searchField: string = '';
   searchFireldFormControl = new FormControl();
   formCtrlSub!: Subscription;
+  dateFilterForm: FormGroup;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     console.log('This is teaser main ', teasers);
   }
   ngOnInit(): void {
+    this.dateFilterForm = this.fb.group({
+      dateFrom: [''],
+      dateTo: [''],
+    });
     this.formCtrlSub = this.searchFireldFormControl.valueChanges
       .pipe(debounceTime(1000), distinctUntilChanged())
       .subscribe((term) => {
@@ -58,7 +64,34 @@ export class TeaserMainComponent implements OnInit {
   filter_Data(keyword: string) {
     this.teasers = teasers;
     this.teasers = this.teasers.filter((value) => {
-      return value.heading.indexOf(keyword) != -1 ? value : null;
+      console.log('check', value.heading.indexOf(keyword) , value.tags.indexOf(keyword)
+      )
+      if(value.heading.indexOf(keyword)== -1) {
+        if (value.tags.indexOf(keyword)== -1)
+        {
+          return null
+        }
+      }
+      return value
     });
+  }
+
+  searchByDate() {
+    let startDate = new Date(this.dateFilterForm.controls['dateFrom'].value);
+    let endDate = new Date(this.dateFilterForm.controls['dateTo'].value);
+    this.teasers = []
+    teasers.filter((value=> {
+      let dateObj = new Date(value.date);
+      if (startDate.getTime() <= dateObj.getTime())
+      {
+        this.teasers.push(value)
+        console.log('Between')
+      }
+
+    let dateKeys=value.date || {};
+    dateKeys = Object.keys(dateKeys)
+    }))
+
+    console.log('This is the value', startDate, endDate);
   }
 }

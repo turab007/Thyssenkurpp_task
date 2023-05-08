@@ -70,7 +70,6 @@ export class TeaserMainComponent implements OnInit {
 
   filter_Data() {
     let keyword = this.filter_term;
-    // this.teasers = teasers;
     let temp = [];
     temp = this.teasers.filter((value) => {
       console.log(

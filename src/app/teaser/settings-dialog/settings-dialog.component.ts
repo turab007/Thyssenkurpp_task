@@ -79,7 +79,6 @@ export class SettingsDialogComponent implements OnInit {
     this.dialogRef.close({
       column_size: this.column_size,
       filter_term: this.filter_term,
-      // teaserArr: this.teasers,
       starting_date: this.dateFilterForm.controls['dateFrom'].value,
       ending_date: this.dateFilterForm.controls['dateTo'].value,
     });

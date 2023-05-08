@@ -3,10 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { TeaserModule } from './teaser/teaser.module';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule,FormsModule,ReactiveFormsModule, AppRoutingModule],
+  declarations: [AppComponent, LandingPageComponent],
+  imports: [
+    BrowserModule,
+    MaterialModule,
+    TeaserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,162 +1,135 @@
 [
   {
-    "id": 7,
+    "id": 1,
     "image": "../../../assets/images/8.webp",
     "heading": "Auf dem Weg zu Netto-Null: CO2- Reduktion in der Zementherstellung",
     "text": "Die Zementindustrie ist einer der weltweit größten Emittenten von Kohlendioxid. Rund drei Milliarden Tonnen CO2 gehen jährlich auf die Produktion von Zement zurück. Ein neues Forschungsprojekt kann zukünftig bei der Dekarbonisierung helfen.",
-    "date": "4/8/2023",
-    "tags": "YMYB"
-  },
-  {
-    "id": 1,
-    "image": "../../../assets/images/1.webp",
-    "heading": "Esprit",
-    "text": "jtolomei0@paypal.com",
-    "date": "10/1/2022",
-    "tags": "cars"
+    "date": "04/18/2023",
+    "tags": [
+      "Nachhhaltigkeit & Klimaschutz",
+      "Engineering & Innovation"
+    ]
   },
   {
     "id": 2,
-    "image": "../../../assets/images/2.webp",
-    "heading": "350Z",
-    "text": "rmatias1@theglobeandmail.com",
-    "date": "5/30/2022",
-    "tags": "GMFM"
+    "image": "../../../assets/images/1.webp",
+    "heading": "Modular Research Platform: Wenn Gutes noch viel besser wird",
+    "text": "Das wertvolle Entwicklungs-Tool Modular Research Platform (MRP) von thyssenkrupp erlebt eine gezielte Weiterentwicklung.",
+    "date": "04/10/2023",
+    "tags": [
+      "Automotive  New Mobility",
+      "Engineering & Innovation"
+    ]
   },
   {
     "id": 3,
-    "image": "../../../assets/images/3.webp",
-    "heading": "Windstar",
-    "text": "lpavlovic2@google.co.uk",
-    "date": "12/23/2022",
-    "tags": "HUMY"
+    "image": "../../../assets/images/2.webp",
+    "heading": "Digitalisierung & Qualitäts- management treffen auf Passion",
+    "text": "Daniel Thiele ist bei thyssenkrupp Steering für das Qualitätsmanagement zuständig und sieht in Digitalisierung und Innovation noch viel mehr Potenzial als bisher ausgeschöpft",
+    "date": "03/27/2023",
+    "tags": [
+      "People & Culture",
+      "Engineering & Innovation",
+      "Automotive  New Mobility"
+    ]
   },
   {
     "id": 4,
-    "image": "../../../assets/images/4.webp",
-    "heading": "Gallardo",
-    "text": "aasbury3@jigsy.com",
-    "date": "9/1/2022",
-    "tags": "90WA"
+    "image": "../../../assets/images/7.webp",
+    "heading": "Warum die Energiewende nur mit grünem Ammoniak gelingen wird",
+    "text": "Grünes Ammoniak ist als Energiespeicher prädestiniert für den Transport von grünem Wasserstoff. #Green Jobs - Carina Lehming denkt Nachhaltigkeit ganzheitlich Bei Nachhaltigkeit geht es nicht nur um Umweltschutz. Das Thema findet auch auf vielen anderen",
+    "date": "03/17/2022",
+    "tags": [
+      "Nachhhaltigkeit & Klimaschutz"
+    ]
   },
   {
     "id": 5,
-    "image": "../../../assets/images/5.webp",
-    "heading": "Sequoia",
-    "text": "tfasey4@webs.com",
-    "date": "11/1/2022",
-    "tags": "LIMC"
+    "image": "../../../assets/images/3.webp",
+    "heading": "#Green Jobs - Carina Lehming denkt Nachhaltigkeit ganzheitlich",
+    "text": "Bei Nachhaltigkeit geht es nicht nur um Umweltschutz. Das Thema findet auch auf vielen anderen Ebenen statt. Wie ein Unternehmen rundum nachhaltig wird, weiß Carina Lehming, Sustainability Managerin bei thyssenkrupp Materials Services.",
+    "date": "02/12/2023",
+    "tags": [
+      "Nachhhaltigkeit & Klimaschutz",
+      "Engineering & Innovation"
+    ]
   },
   {
     "id": 6,
     "image": "../../../assets/images/6.webp",
-    "heading": "Grand Marquis",
-    "text": "fbineham5@printfriendly.com",
-    "date": "5/21/2022",
-    "tags": "ULDD"
+    "heading": "Marie Jaroni: Mission Klimaneutralität",
+    "text": "Gemeinsam mit ihrem Team arbeitet Stahlstrategin Dr. Marie Jaroni daran, den Werkstoff Stahl grün zu machen.",
+    "date": "01/11/2023",
+    "tags": [
+      "Energie & Innovation",
+      "People & Culture"
+    ]
+  },
+  {
+    "id": 7,
+    "image": "../../../assets/images/8.webp",
+    "heading": "Auf dem Weg zu Netto-Null: CO2- Reduktion in der Zementherstellung",
+    "text": "Die Zementindustrie ist einer der weltweit größten Emittenten von Kohlendioxid. Rund drei Milliarden Tonnen CO2 gehen jährlich auf die Produktion von Zement zurück. Ein neues Forschungsprojekt kann zukünftig bei der Dekarbonisierung helfen.",
+    "date": "04/18/2023",
+    "tags": [
+      "Nachhhaltigkeit & Klimaschutz",
+      "Engineering & Innovation"
+    ]
   },
   {
     "id": 8,
-    "image": "444558836-9",
-    "heading": "E-Series",
-    "text": "pstreat7@ibm.com",
-    "date": "6/25/2022",
-    "tags": "SSPN"
+    "image": "../../../assets/images/1.webp",
+    "heading": "Modular Research Platform: Wenn Gutes noch viel besser wird",
+    "text": "Das wertvolle Entwicklungs-Tool Modular Research Platform (MRP) von thyssenkrupp erlebt eine gezielte Weiterentwicklung.",
+    "date": "04/10/2023",
+    "tags": [
+      "Automotive  New Mobility",
+      "Engineering & Innovation"
+    ]
   },
   {
     "id": 9,
-    "image": "788984114-0",
-    "heading": "CR-V",
-    "text": "ecaneo8@apache.org",
-    "date": "1/5/2023",
-    "tags": "NFKD"
+    "image": "../../../assets/images/2.webp",
+    "heading": "Digitalisierung & Qualitäts- management treffen auf Passion",
+    "text": "Daniel Thiele ist bei thyssenkrupp Steering für das Qualitätsmanagement zuständig und sieht in Digitalisierung und Innovation noch viel mehr Potenzial als bisher ausgeschöpft",
+    "date": "03/27/2023",
+    "tags": [
+      "People & Culture",
+      "Engineering & Innovation",
+      "Automotive  New Mobility"
+    ]
   },
   {
     "id": 10,
-    "image": "432828110-0",
-    "heading": "A8",
-    "text": "dhryniewicz9@taobao.com",
-    "date": "1/8/2023",
-    "tags": "EVVA"
+    "image": "../../../assets/images/7.webp",
+    "heading": "Warum die Energiewende nur mit grünem Ammoniak gelingen wird",
+    "text": "Grünes Ammoniak ist als Energiespeicher prädestiniert für den Transport von grünem Wasserstoff. #Green Jobs - Carina Lehming denkt Nachhaltigkeit ganzheitlich Bei Nachhaltigkeit geht es nicht nur um Umweltschutz. Das Thema findet auch auf vielen anderen",
+    "date": "03/17/2022",
+    "tags": [
+      "Nachhhaltigkeit & Klimaschutz"
+    ]
   },
   {
     "id": 11,
-    "image": "623950405-X",
-    "heading": "Montero",
-    "text": "cgraystona@alibaba.com",
-    "date": "11/6/2022",
-    "tags": "OPMA"
+    "image": "../../../assets/images/3.webp",
+    "heading": "#Green Jobs - Carina Lehming denkt Nachhaltigkeit ganzheitlich",
+    "text": "Bei Nachhaltigkeit geht es nicht nur um Umweltschutz. Das Thema findet auch auf vielen anderen Ebenen statt. Wie ein Unternehmen rundum nachhaltig wird, weiß Carina Lehming, Sustainability Managerin bei thyssenkrupp Materials Services.",
+    "date": "02/12/2023",
+    "tags": [
+      "Nachhhaltigkeit & Klimaschutz",
+      "Engineering & Innovation"
+    ]
   },
   {
     "id": 12,
-    "image": "734447711-4",
-    "heading": "Grand Am",
-    "text": "gdybleb@seesaa.net",
-    "date": "3/23/2023",
-    "tags": "KMCO"
-  },
-  {
-    "id": 13,
-    "image": "977264675-7",
-    "heading": "Integra",
-    "text": "malloisic@shinystat.com",
-    "date": "8/17/2022",
-    "tags": "OJMF"
-  },
-  {
-    "id": 14,
-    "image": "645959623-9",
-    "heading": "2500",
-    "text": "nvillaged@paypal.com",
-    "date": "10/29/2022",
-    "tags": "WMKK"
-  },
-  {
-    "id": 15,
-    "image": "078628292-4",
-    "heading": "VUE",
-    "text": "ftomaszewicze@skype.com",
-    "date": "12/25/2022",
-    "tags": "MRCR"
-  },
-  {
-    "id": 16,
-    "image": "804270121-7",
-    "heading": "Eos",
-    "text": "spainef@hubpages.com",
-    "date": "7/30/2022",
-    "tags": "SBRB"
-  },
-  {
-    "id": 17,
-    "image": "047147908-X",
-    "heading": "Pajero",
-    "text": "mflecknellg@uol.com.br",
-    "date": "7/27/2022",
-    "tags": "ENDU"
-  },
-  {
-    "id": 18,
-    "image": "714677256-X",
-    "heading": "Echo",
-    "text": "mlebrunh@state.tx.us",
-    "date": "9/27/2022",
-    "tags": "KRKS"
-  },
-  {
-    "id": 19,
-    "image": "063238146-9",
-    "heading": "Lancer",
-    "text": "mkerneri@privacy.gov.au",
-    "date": "3/11/2023",
-    "tags": "4K0"
-  },
-  {
-    "id": 20,
-    "image": "308418418-6",
-    "heading": "riolet",
-    "text": "bmadenj@sakura.ne.jp",
-    "date": "12/13/2022",
-    "tags": "KSYI"
+    "image": "../../../assets/images/6.webp",
+    "heading": "Marie Jaroni: Mission Klimaneutralität",
+    "text": "Gemeinsam mit ihrem Team arbeitet Stahlstrategin Dr. Marie Jaroni daran, den Werkstoff Stahl grün zu machen.",
+    "date": "01/11/2023",
+    "tags": [
+      "Energie & Innovation",
+      "People & Culture"
+    ]
   }
+
 ]

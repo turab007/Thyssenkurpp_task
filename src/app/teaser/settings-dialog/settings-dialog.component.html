@@ -1,0 +1,57 @@
+<div class="m-2">
+
+  <div>
+    <form [formGroup]="dateFilterForm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a starting date</mat-label>
+        <input matInput formControlName="dateFrom" [matDatepicker]="picker1" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a ending date</mat-label>
+        <input matInput formControlName="dateTo" [matDatepicker]="picker2" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker2"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+  </form>
+
+  <mat-label>Select columns</mat-label>
+  <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group" (change)="changeColumnNo()"
+  [(ngModel)]="column_size"
+  >
+  <mat-radio-button class="example-radio-button" value="4">
+    4
+  </mat-radio-button>
+
+  <mat-radio-button class="example-radio-button" value="2">
+      2
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+<mat-form-field class="example-full-width">
+  <mat-label>Search</mat-label>
+  <input matInput
+  type="text"
+  [value]="filter_term"
+  [formControl]="searchFireldFormControl"
+  />
+</mat-form-field>
+<div class="pb-2">
+  <button mat-raised-button (click)="close()"> Close</button>
+</div>
+
+</div>

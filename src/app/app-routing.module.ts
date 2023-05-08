@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { TeaserModule } from './teaser/teaser.module';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -9,6 +10,11 @@ const routes: Routes = [
     path: 'teaser',
     loadChildren: () =>
       import('./teaser/teaser.module').then((m) => m.TeaserModule),
+  },
+  {
+    path: 'reuse',
+    loadChildren: () =>
+      import('./reuse/reuse.module').then((m) => m.ReuseModule),
   },
   { path: '**', redirectTo: 'home' },
 ];

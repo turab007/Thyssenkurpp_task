@@ -1,16 +1,31 @@
 .teaserDiv {
-  max-width: 200px;
+  max-width: 280px;
   border: 1px solid lightgray;
-  border-radius: 5px;
   margin: 5px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 img {
-  width: 200px;
+  width: 280px;
+  height: 160px;
 }
 
- #containerDiv
-{
-  display: flex;
-  flex-wrap: wrap;
+#containerDiv {
+  /* display: flex;
+  flex-wrap: wrap; */
+
+  display: grid;
+  max-width: 1200px;
+}
+
+/* grid-template-columns: repeat(auto-fit, 186px); */
+
+.column4 {
+  grid-template-columns: repeat(auto-fit, 300px);
+}
+.column2 {
+  grid-template-columns: repeat(auto-fit, 600px);
 }

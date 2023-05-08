@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 import teasers from '../teaser.json';
+import { MatDialog } from '@angular/material/dialog';
+import { SettingsDialogComponent } from '../settings-dialog/settings-dialog.component';
 
 @Component({
   selector: 'app-teaser-main',
@@ -10,25 +12,30 @@ import teasers from '../teaser.json';
 })
 export class TeaserMainComponent implements OnInit {
   teasers = teasers;
-  searchField: string = '';
   searchFireldFormControl = new FormControl();
   formCtrlSub!: Subscription;
   dateFilterForm: FormGroup;
+  column_size = '4';
+  columnCount4 = true;
+  starting_date: string;
+  ending_date: string;
+  filter_term: string;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
     console.log('This is teaser main ', teasers);
   }
-  ngOnInit(): void {
-    this.dateFilterForm = this.fb.group({
-      dateFrom: [''],
-      dateTo: [''],
+  ngOnInit(): void {}
+  searchByDate() {
+    let startDate = new Date(this.starting_date);
+    let endDate = new Date(this.ending_date);
+    this.teasers = [];
+    teasers.filter((value) => {
+      let dateObj = new Date(value.date);
+      if (startDate.getTime() <= dateObj.getTime()) {
+        this.teasers.push(value);
+      }
     });
-    this.formCtrlSub = this.searchFireldFormControl.valueChanges
-      .pipe(debounceTime(1000), distinctUntilChanged())
-      .subscribe((term) => {
-        this.filter_Data(term);
-        console.log('This is the term', term);
-      });
+    console.log('This is the value', startDate, endDate);
   }
 
   // fromDate: string='';
@@ -61,37 +68,63 @@ export class TeaserMainComponent implements OnInit {
   //   return filtered;
   // }
 
-  filter_Data(keyword: string) {
-    this.teasers = teasers;
-    this.teasers = this.teasers.filter((value) => {
-      console.log('check', value.heading.indexOf(keyword) , value.tags.indexOf(keyword)
-      )
-      if(value.heading.indexOf(keyword)== -1) {
-        if (value.tags.indexOf(keyword)== -1)
-        {
-          return null
+  filter_Data() {
+    let keyword = this.filter_term;
+    // this.teasers = teasers;
+    let temp = [];
+    temp = this.teasers.filter((value) => {
+      console.log(
+        'check',
+        value.heading.indexOf(keyword),
+        value.tags.indexOf(keyword)
+      );
+      if (value.heading.indexOf(keyword) == -1) {
+        if (value.tags.indexOf(keyword) == -1) {
+          return null;
         }
       }
-      return value
+      return value;
     });
+    this.teasers = temp;
+    console.log(temp);
   }
 
-  searchByDate() {
-    let startDate = new Date(this.dateFilterForm.controls['dateFrom'].value);
-    let endDate = new Date(this.dateFilterForm.controls['dateTo'].value);
-    this.teasers = []
-    teasers.filter((value=> {
-      let dateObj = new Date(value.date);
-      if (startDate.getTime() <= dateObj.getTime())
-      {
-        this.teasers.push(value)
-        console.log('Between')
+  openDialog(): void {
+    const dialogRef = this.dialog.open(SettingsDialogComponent, {
+      data: {
+        column_size: this.column_size,
+        starting_date: this.starting_date,
+        ending_date: this.ending_date,
+        filter_term: this.filter_term,
+      },
+      width: '400px',
+      height: '350px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result.column_size) {
+        console.log('The dialog was closed', result);
+        this.column_size = result.column_size;
+        if (this.column_size == '4') {
+          this.columnCount4 = true;
+        } else {
+          this.columnCount4 = false;
+        }
+        // this.animal = result;
+      }
+      if (result.filter_term) {
+        this.filter_term = result.filter_term;
+        this.filter_Data();
+      }
+      if (result.teaserArr) {
+        this.teasers = result.teaserArr;
       }
 
-    let dateKeys=value.date || {};
-    dateKeys = Object.keys(dateKeys)
-    }))
-
-    console.log('This is the value', startDate, endDate);
+      if (result.starting_date && result.ending_date) {
+        this.starting_date = result.starting_date;
+        this.ending_date = result.ending_date;
+        this.searchByDate();
+      }
+    });
   }
 }

@@ -1,30 +1,41 @@
-<h1>Entdecken Sie weitere Stories von thyssenkrupp</h1>
-<div>
-  <form [formGroup]="dateFilterForm" (ngSubmit)="searchByDate()">
-    <input formControlName="dateFrom" type="date" />
-    <input formControlName="dateTo" type="date" />
-    <button type="submit">Search</button>
-  </form>
-</div>
-<input
-  type="text"
-  [value]="searchField"
-  [formControl]="searchFireldFormControl"
-/>
-<div id="containerDiv">
-  <ng-container *ngFor="let item of teasers">
-    <div class="teaserDiv">
-      <img [src]="item.image" />
-      <h4>
-        {{ item.heading }}
-      </h4>
-      <span>
-        {{ item.text }}
-      </span>
+<div class="p-6">
+  <button mat-raised-button (click)="openDialog()"> Open Settings</button>
+  <h1>Entdecken Sie weitere Stories von thyssenkrupp</h1>
+  <!-- <div> -->
+  <div
+    id="containerDiv"
+    [ngClass]="columnCount4 ? 'column4' : 'column2'"
+    class="mt-5"
+  >
+    <ng-container *ngFor="let item of teasers">
+      <div class="teaserDiv">
+        <img [src]="item.image" />
+        <div class="p-3 mt-1 grow flex flex-col justify-between">
+          <div>
+            <h4>
+              {{ item.heading }}
+            </h4>
+            <p class="mt-1">
+              {{ item.text }}
+            </p>
+          </div>
 
-      <div>
-        <span>{{ item.date }}</span>
+          <div class="flex justify-between items-end">
+            <p>{{ item.date | date : "dd.MM.yyyy" }}</p>
+            <div>
+              <ng-container *ngFor="let tag of item.tags">
+                <p
+                  style="color: #00a0f5; font-size: 10px"
+                  class="font-bold text-end"
+                >
+                  {{ tag }}
+                </p>
+              </ng-container>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
 </div>
+<!-- </div> -->

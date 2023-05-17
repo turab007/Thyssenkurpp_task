@@ -1,0 +1,31 @@
+.teaserDiv {
+  min-width: 280px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 500px;
+}
+
+#nav_item_right{
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  display: flex;
+  background-color: #fff;
+  border-radius: 100px;
+}
+
+#nav_item_left{
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  display: flex;
+  background-color: #fff;
+  border-radius: 100px;
+}
+
+img {
+  width: 500px;
+  height: 300px;
+}

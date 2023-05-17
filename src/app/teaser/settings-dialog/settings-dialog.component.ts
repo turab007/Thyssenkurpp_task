@@ -11,6 +11,7 @@ export interface DialogData {
   starting_date: string;
   ending_date: string;
   teaserArr: any[];
+  clear: boolean;
 }
 
 @Component({
@@ -75,12 +76,18 @@ export class SettingsDialogComponent implements OnInit {
     console.log(this.columnCount4);
   }
 
-  close() {
-    this.dialogRef.close({
-      column_size: this.column_size,
-      filter_term: this.filter_term,
-      starting_date: this.dateFilterForm.controls['dateFrom'].value,
-      ending_date: this.dateFilterForm.controls['dateTo'].value,
-    });
+  close(clear: boolean) {
+    if (clear) {
+      this.dialogRef.close({
+        clear: clear,
+      });
+    } else {
+      this.dialogRef.close({
+        column_size: this.column_size,
+        filter_term: this.filter_term,
+        starting_date: this.dateFilterForm.controls['dateFrom'].value,
+        ending_date: this.dateFilterForm.controls['dateTo'].value,
+      });
+    }
   }
 }

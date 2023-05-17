@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import teasers from '../teaser.json';
 import { MatDialog } from '@angular/material/dialog';
 import { SettingsDialogComponent } from '../settings-dialog/settings-dialog.component';
+import { DetailViewComponent } from '../detail-view/detail-view.component';
+import { teaser } from '../teaser';
 
 @Component({
   selector: 'app-teaser-main',
@@ -11,7 +13,7 @@ import { SettingsDialogComponent } from '../settings-dialog/settings-dialog.comp
   styleUrls: ['./teaser-main.component.css'],
 })
 export class TeaserMainComponent implements OnInit {
-  teasers = teasers;
+  teasers: teaser[] = teasers;
   searchFireldFormControl = new FormControl();
   formCtrlSub!: Subscription;
   dateFilterForm: FormGroup;
@@ -31,42 +33,21 @@ export class TeaserMainComponent implements OnInit {
     this.teasers = [];
     teasers.filter((value) => {
       let dateObj = new Date(value.date);
-      if (startDate.getTime() <= dateObj.getTime()) {
+      if (startDate && endDate) {
+        if (
+          startDate.getTime() <= dateObj.getTime() &&
+          endDate.getTime() >= dateObj.getTime()
+        ) {
+          this.teasers.push(value);
+        }
+      } else if (startDate.getTime() <= dateObj.getTime() && endDate == null) {
+        this.teasers.push(value);
+      } else if (endDate.getTime() >= dateObj.getTime() && startDate == null) {
         this.teasers.push(value);
       }
     });
     console.log('This is the value', startDate, endDate);
   }
-
-  // fromDate: string='';
-  // toDate: string='';
-  // sortByDate!: boolean;
-  // searchTerm!: string;
-
-  // get filteredTeasers() {
-  //   let filtered = this.teasers;
-
-  //   if (this.fromDate) {
-  //     filtered = filtered.filter(teaser => new Date(teaser.date) >= new Date(this.fromDate));
-  //   }
-
-  //   if (this.toDate) {
-  //     filtered = filtered.filter(teaser => new Date(teaser.date) <= new Date(this.toDate));
-  //   }
-
-  //   if (this.sortByDate) {
-  //     filtered = filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  //   }
-
-  //   if (this.searchTerm) {
-  //     filtered = filtered.filter(teaser => {
-  //       return teaser.heading.toLowerCase().includes(this.searchTerm.toLowerCase())
-  //         || teaser.tags.some(tag => tag.toLowerCase().includes(this.searchTerm.toLowerCase()));
-  //     });
-  //   }
-
-  //   return filtered;
-  // }
 
   filter_Data() {
     let keyword = this.filter_term;
@@ -88,6 +69,19 @@ export class TeaserMainComponent implements OnInit {
     console.log(temp);
   }
 
+  sort(sort_type: string) {
+    let temp = this.teasers;
+    if (sort_type == 'desc') {
+      temp.sort((a: teaser, b: teaser) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      });
+    } else if (sort_type == 'asc') {
+      temp.sort((a: teaser, b: teaser) => {
+        return new  Date(b.date).getTime()- new Date(a.date).getTime() ;
+      });
+    }
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(SettingsDialogComponent, {
       data: {
@@ -101,15 +95,16 @@ export class TeaserMainComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      if (result.clear) {
+        this.teasers = teasers;
+      }
       if (result.column_size) {
-        console.log('The dialog was closed', result);
         this.column_size = result.column_size;
         if (this.column_size == '4') {
           this.columnCount4 = true;
         } else {
           this.columnCount4 = false;
         }
-        // this.animal = result;
       }
       if (result.filter_term) {
         this.filter_term = result.filter_term;
@@ -119,11 +114,20 @@ export class TeaserMainComponent implements OnInit {
         this.teasers = result.teaserArr;
       }
 
-      if (result.starting_date && result.ending_date) {
+      if (result.starting_date || result.ending_date) {
         this.starting_date = result.starting_date;
         this.ending_date = result.ending_date;
         this.searchByDate();
       }
+    });
+  }
+
+  openDetail(item: teaser) {
+    this.dialog.open(DetailViewComponent, {
+      data: {
+        all_items: this.teasers,
+        selected_item: item,
+      },
     });
   }
 }

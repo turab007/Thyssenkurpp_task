@@ -1,11 +1,13 @@
 .teaserDiv {
-  max-width: 280px;
+  min-width: 280px;
   border: 1px solid lightgray;
   margin: 5px;
+  margin-bottom: 15px;
   height: 420px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 280px;
 }
 
 img {
@@ -14,18 +16,26 @@ img {
 }
 
 #containerDiv {
-  /* display: flex;
-  flex-wrap: wrap; */
-
-  display: grid;
-  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  /* max-width: 1200px; */
 }
 
-/* grid-template-columns: repeat(auto-fit, 186px); */
+#containerDiv > div {
+  flex-grow: 1;
+  min-width: 290px;
+  display: flex;
+  justify-content: center;
+}
 
 .column4 {
-  grid-template-columns: repeat(auto-fit, 300px);
+  width: 25%;
 }
 .column2 {
-  grid-template-columns: repeat(auto-fit, 600px);
+  width: 50%;
+}
+
+button > mat-icon {
+  margin-left: 0;
+  margin-right: 0;
 }

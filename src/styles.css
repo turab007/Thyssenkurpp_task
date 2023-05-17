@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: 'MyWebFont';
-  src:  url('./assets/fonts/tktypebold-regular.woff2') format('woff2'),
-  url('./assets/fonts/tktypemedium-regular.woff2') format('woff'),
-  url('./assets/fonts/tktyperegular-italic.woff2') format('woff'),
-  url('./assets/fonts/tktyperegular-regular.woff2') format('woff'),
+  font-family: "MyWebFont";
+  src: url("./assets/fonts/tktypebold-regular.woff2") format("woff2"),
+    url("./assets/fonts/tktypemedium-regular.woff2") format("woff"),
+    url("./assets/fonts/tktyperegular-italic.woff2") format("woff"),
+    url("./assets/fonts/tktyperegular-regular.woff2") format("woff");
 }
 @tailwind base;
 @tailwind components;
@@ -16,7 +16,7 @@ h1 {
 }
 
 h4 {
-  @apply text-base
+  @apply text-base;
 }
 
 body {
@@ -28,8 +28,11 @@ p {
   color: gray;
 }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

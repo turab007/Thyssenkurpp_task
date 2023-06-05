@@ -23,8 +23,7 @@ export class TeaserMainComponent implements OnInit {
   ending_date: string;
   filter_term: string;
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {
-  }
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
   ngOnInit(): void {}
 
   searchByDate() {
@@ -52,17 +51,28 @@ export class TeaserMainComponent implements OnInit {
     let keyword = this.filter_term;
     let temp = [];
     temp = this.teasers.filter((value) => {
+      let found = false;
       console.log(
         'check',
         value.heading.indexOf(keyword),
         value.tags.indexOf(keyword)
       );
-      if (value.heading.indexOf(keyword) == -1) {
-        if (value.tags.indexOf(keyword) == -1) {
-          return null;
-        }
+      if (value.heading.indexOf(keyword) != -1) {
+        found = true;
       }
-      return value;
+      else {
+        value.tags.forEach((tag) => {
+          if (tag.indexOf(keyword) != -1) {
+            found=true;
+          }
+        });
+      }
+      if(found) {
+        return value
+      }
+      else {
+        return null
+      }
     });
     this.teasers = temp;
     console.log(temp);
@@ -76,7 +86,7 @@ export class TeaserMainComponent implements OnInit {
       });
     } else if (sort_type == 'desc') {
       temp.sort((a: teaser, b: teaser) => {
-        return new  Date(b.date).getTime()- new Date(a.date).getTime() ;
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
     }
   }
@@ -118,7 +128,7 @@ export class TeaserMainComponent implements OnInit {
         this.ending_date = result.ending_date;
         this.searchByDate();
       }
-      if(result.sort) {
+      if (result.sort) {
         this.sort(result.sort);
       }
     });

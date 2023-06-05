@@ -29,22 +29,24 @@ export class TeaserMainComponent implements OnInit {
   searchByDate() {
     let startDate = new Date(this.starting_date);
     let endDate = new Date(this.ending_date);
-    this.teasers = [];
-    teasers.filter((value) => {
+    let tmp: teaser[] = [];
+    // this.teasers = [];
+    this.teasers.filter((value) => {
       let dateObj = new Date(value.date);
       if (startDate && endDate) {
         if (
           startDate.getTime() <= dateObj.getTime() &&
           endDate.getTime() >= dateObj.getTime()
         ) {
-          this.teasers.push(value);
+          tmp.push(value);
         }
       } else if (startDate.getTime() <= dateObj.getTime() && endDate == null) {
-        this.teasers.push(value);
+        tmp.push(value);
       } else if (endDate.getTime() >= dateObj.getTime() && startDate == null) {
-        this.teasers.push(value);
+        tmp.push(value);
       }
     });
+    this.teasers = tmp;
   }
 
   filter_Data() {
@@ -59,19 +61,17 @@ export class TeaserMainComponent implements OnInit {
       );
       if (value.heading.indexOf(keyword) != -1) {
         found = true;
-      }
-      else {
+      } else {
         value.tags.forEach((tag) => {
           if (tag.indexOf(keyword) != -1) {
-            found=true;
+            found = true;
           }
         });
       }
-      if(found) {
-        return value
-      }
-      else {
-        return null
+      if (found) {
+        return value;
+      } else {
+        return null;
       }
     });
     this.teasers = temp;

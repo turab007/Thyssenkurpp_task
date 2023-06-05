@@ -42,7 +42,7 @@ button > mat-icon {
 
 .fab-button
 {
-  position: absolute;
+  position: fixed;
   right: 50px;
   bottom: 20px;
 }

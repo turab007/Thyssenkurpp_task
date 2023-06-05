@@ -24,9 +24,9 @@ export class TeaserMainComponent implements OnInit {
   filter_term: string;
 
   constructor(private fb: FormBuilder, public dialog: MatDialog) {
-    console.log('This is teaser main ', teasers);
   }
   ngOnInit(): void {}
+
   searchByDate() {
     let startDate = new Date(this.starting_date);
     let endDate = new Date(this.ending_date);
@@ -46,7 +46,6 @@ export class TeaserMainComponent implements OnInit {
         this.teasers.push(value);
       }
     });
-    console.log('This is the value', startDate, endDate);
   }
 
   filter_Data() {
@@ -71,11 +70,11 @@ export class TeaserMainComponent implements OnInit {
 
   sort(sort_type: string) {
     let temp = this.teasers;
-    if (sort_type == 'desc') {
+    if (sort_type == 'asc') {
       temp.sort((a: teaser, b: teaser) => {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
       });
-    } else if (sort_type == 'asc') {
+    } else if (sort_type == 'desc') {
       temp.sort((a: teaser, b: teaser) => {
         return new  Date(b.date).getTime()- new Date(a.date).getTime() ;
       });
@@ -90,8 +89,8 @@ export class TeaserMainComponent implements OnInit {
         ending_date: this.ending_date,
         filter_term: this.filter_term,
       },
-      width: '400px',
-      height: '350px',
+      width: '600px',
+      height: '400px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -118,6 +117,9 @@ export class TeaserMainComponent implements OnInit {
         this.starting_date = result.starting_date;
         this.ending_date = result.ending_date;
         this.searchByDate();
+      }
+      if(result.sort) {
+        this.sort(result.sort);
       }
     });
   }

@@ -1,58 +1,88 @@
-<div class="m-2">
-
+<mat-toolbar color="primary">
+  <span>Settings</span>
+</mat-toolbar>
+<div class="mx-3 mt-4 flex flex-col">
   <div>
     <form [formGroup]="dateFilterForm">
-
       <mat-form-field appearance="fill">
         <mat-label>Choose a starting date</mat-label>
         <input matInput formControlName="dateFrom" [matDatepicker]="picker1" />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker1"
+          matIconSuffix
+          [for]="picker1"
         ></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field class="ml-2" appearance="fill">
         <mat-label>Choose a ending date</mat-label>
         <input matInput formControlName="dateTo" [matDatepicker]="picker2" />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker2"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
+          matIconSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </form>
+    <div>
+      <mat-label>Select columns</mat-label>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        (change)="changeColumnNo()"
+        [(ngModel)]="column_size"
+      >
+        <mat-radio-button class="example-radio-button" value="4">
+          4
+        </mat-radio-button>
+
+        <mat-radio-button class="example-radio-button" value="2">
+          2
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div>
+      <button matTooltip="Descending" mat-raised-button (click)="sort('desc')">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Settings icon"
+          fontIcon="arrow_downward"
+        ></mat-icon>
+      </button>
+      <button matTooltip="Ascending" mat-raised-button (click)="sort('asc')">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Settings icon"
+          fontIcon="arrow_upward"
+        ></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-3 w-80">
+    <mat-form-field class="example-full-width">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        type="text"
+        [value]="filter_term"
+        [formControl]="searchFireldFormControl"
+      />
     </mat-form-field>
+  </div>
 
-  </form>
-
-  <mat-label>Select columns</mat-label>
-  <mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group" (change)="changeColumnNo()"
-  [(ngModel)]="column_size"
-  >
-  <mat-radio-button class="example-radio-button" value="4">
-    4
-  </mat-radio-button>
-
-  <mat-radio-button class="example-radio-button" value="2">
-      2
-    </mat-radio-button>
-  </mat-radio-group>
-</div>
-<mat-form-field class="example-full-width">
-  <mat-label>Search</mat-label>
-  <input matInput
-  type="text"
-  [value]="filter_term"
-  [formControl]="searchFireldFormControl"
-  />
-</mat-form-field>
-<div class="pb-2">
-  <button mat-raised-button (click)="close(false)"> Close</button>
-  <button mat-raised-button (click)="close(true)"> Clear</button>
-</div>
-
+  <div class="pb-2 flex justify-end">
+    <button
+      mat-raised-button
+      class="m-2"
+      color="primary"
+      (click)="close(false)"
+    >
+      Save
+    </button>
+    <button mat-raised-button class="m-2" (click)="close(true)">Clear</button>
+  </div>
 </div>

@@ -12,6 +12,7 @@ export interface DialogData {
   ending_date: string;
   teaserArr: any[];
   clear: boolean;
+  sort: string;
 }
 
 @Component({
@@ -38,6 +39,7 @@ export class SettingsDialogComponent implements OnInit {
   formCtrlSub!: Subscription;
   filter_term: string = '';
   teasers = teasers;
+  sorting: string;
 
   ngOnInit(): void {
     this.dateFilterForm = this.fb.group({
@@ -49,7 +51,6 @@ export class SettingsDialogComponent implements OnInit {
       .pipe(debounceTime(1000), distinctUntilChanged())
       .subscribe((term) => {
         this.filter_term = term;
-        console.log('This is the term', term);
       });
   }
 
@@ -65,6 +66,10 @@ export class SettingsDialogComponent implements OnInit {
   //   });
   //   console.log('This is the value', startDate, endDate);
   // }
+
+  sort(sort: string) {
+    this.sorting = sort;
+  }
 
   changeColumnNo() {
     if (this.column_size == '4') {
@@ -87,6 +92,7 @@ export class SettingsDialogComponent implements OnInit {
         filter_term: this.filter_term,
         starting_date: this.dateFilterForm.controls['dateFrom'].value,
         ending_date: this.dateFilterForm.controls['dateTo'].value,
+        sort: this.sorting
       });
     }
   }

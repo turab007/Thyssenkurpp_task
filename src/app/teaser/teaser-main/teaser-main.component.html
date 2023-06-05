@@ -1,63 +1,51 @@
-<div class="p-6">
-  <div class="flex justify-between items-center">
-    <h1>Entdecken Sie weitere Stories von thyssenkrupp</h1>
-    <div>
-      <button matTooltip="Descending" mat-raised-button (click)="sort('desc')">
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Settings icon"
-          fontIcon="arrow_downward"
-        ></mat-icon>
-      </button>
-      <button matTooltip="Ascending" mat-raised-button (click)="sort('asc')">
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Settings icon"
-          fontIcon="arrow_upward"
-        ></mat-icon>
-      </button>
-      <button mat-raised-button (click)="openDialog()">
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Settings icon"
-          fontIcon="settings"
-        ></mat-icon>
-      </button>
-    </div>
-  </div>
+<div class="p-6 flex justify-center">
   <!-- <div> -->
-  <div id="containerDiv" class="mt-5">
-    <ng-container *ngFor="let item of teasers">
-      <div [ngClass]="columnCount4 ? 'column4' : 'column2'">
-        <div class="teaserDiv" (click)="openDetail(item)">
-          <img [src]="item.image" />
-          <div class="p-3 mt-1 grow flex flex-col justify-between">
-            <div>
-              <h4>
-                {{ item.heading }}
-              </h4>
-              <p class="mt-1">
-                {{ item.text }}
-              </p>
-            </div>
-
-            <div class="flex justify-between items-end">
-              <p>{{ item.date | date : "dd.MM.yyyy" }}</p>
+    <div class="flex flex-col items-center max-w-screen-2xl" >
+    <div class="flex justify-center items-center">
+      <h1>Entdecken Sie weitere Stories von thyssenkrupp</h1>
+      <div class="fab-button">
+        <button mat-raised-button (click)="openDialog()">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Settings icon"
+            fontIcon="settings"
+          ></mat-icon>
+        </button>
+      </div>
+    </div>
+    <div id="containerDiv" class="mt-5">
+      <ng-container *ngFor="let item of teasers">
+        <div [ngClass]="columnCount4 ? 'column4' : 'column2'">
+          <div class="teaserDiv" (click)="openDetail(item)">
+            <img [src]="item.image" />
+            <div class="p-3 mt-1 grow flex flex-col justify-between">
               <div>
-                <ng-container *ngFor="let tag of item.tags">
-                  <p
-                    style="color: #00a0f5; font-size: 10px"
-                    class="font-bold text-end"
-                  >
-                    {{ tag }}
-                  </p>
-                </ng-container>
+                <h4>
+                  {{ item.heading }}
+                </h4>
+                <p class="mt-1">
+                  {{ item.text }}
+                </p>
+              </div>
+
+              <div class="flex justify-between items-end">
+                <p>{{ item.date | date : "dd.MM.yyyy" }}</p>
+                <div>
+                  <ng-container *ngFor="let tag of item.tags">
+                    <p
+                      style="color: #00a0f5; font-size: 10px"
+                      class="font-bold text-end"
+                    >
+                      {{ tag }}
+                    </p>
+                  </ng-container>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </ng-container>
+      </ng-container>
+    </div>
   </div>
 </div>
 <!-- </div> -->

@@ -8,8 +8,10 @@ import { menuItem } from '../menuItem.model';
 })
 export class ReuseableMenuExampleComponent {
   menuData: menuItem[] = [
-    { name: 'Beratung', active: false, icon: '' },
-    { name: 'Logistik', active: false, icon: '' },
-    { name: 'Sortiments', active: false, icon: '' },
+    { name: 'Beratung', active: false, icon: 'block', link: '' },
+    { name: 'Logistik', active: false, icon: 'home', link: '' },
+    { name: 'Sortiments', active: false, icon: 'bolt', link: '' },
+    { name: 'Sortiments', active: false, icon: 'remove', link: '' },
+    { name: 'Sortiments', active: false, icon: 'home', link: '' },
   ];
 }

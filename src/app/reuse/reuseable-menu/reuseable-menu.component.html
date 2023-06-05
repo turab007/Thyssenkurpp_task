@@ -1,6 +1,30 @@
-<div class="ml-10" style="background-color: lightgray; width: 200px; height: 200px; border-radius: 100px;">
-  <ng-container *ngFor="let item of list">
-    {{ item.name }}
-  </ng-container>
-  Hello
+<div class="main p-10 flex justify-center">
+  <nav class="circular-menu">
+    <div class="circle">
+      <ng-container *ngFor="let item of list; let i = index">
+        <a class="myIcon" (click)="active(i)">
+          <div [ngStyle]="item.active && {'color': '#ffa07a'}">
+            <div class="flex flex-col justify-center items-center">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Example home icon"
+                [fontIcon]="item.icon"
+              ></mat-icon>
+              <span>{{ item.name }}</span>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+
+    <button (click)="open()">
+      <a class="menu-button">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="menu"
+        ></mat-icon>
+      </a>
+    </button>
+  </nav>
 </div>

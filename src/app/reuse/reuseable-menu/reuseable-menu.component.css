@@ -1,0 +1,324 @@
+.main {
+  background: #39d;
+}
+
+.circular-menu {
+  width: 250px;
+  height: 250px;
+  /* margin: 0 auto; */
+  position: relative;
+  margin: 10px;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  opacity: 0;
+
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  transform: scale(0);
+
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.open.circle {
+  opacity: 1;
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+  background-color: #444;
+  border-radius: 130px;
+}
+
+.circle a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: absolute;
+  text-align: center;
+}
+
+.circle a:hover {
+  color: #eef;
+}
+
+.menu-button {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  text-decoration: none;
+  text-align: center;
+  color: #444;
+  border-radius: 50%;
+  display: block;
+  height: 60px;
+  width: 60px;
+  line-height: 40px;
+  padding: 10px;
+  background: #dde;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-button:hover {
+  background-color: #eef;
+}
+
+.arc {
+  position: absolute;
+  /* Border size and color */
+  border: 10px solid red;
+  /* Creates a circle */
+  border-radius: 50%;
+  /* Circle size */
+  height: 270px;
+  width: 270px;
+  /* Use transparent borders to define opening (more transparent = larger opening) */
+  border-top-color: transparent;
+  border-left-color: transparent;
+  /* Use transform to rotate to adjust where opening appears */
+  transform: rotate(300deg);
+}
+
+
+
+
+
+
+
+
+body{
+  font-family: Helvetica, sans-serif;
+}
+.heading{
+  text-align: center;
+  margin-top: 50px;
+}
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pie-wrap{
+  border: 2px solid lightgrey;
+  width: 0px;
+  height: 0px;
+  margin: 10% 50px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  color: black;
+  animation: pie-size 750ms 500ms ease forwards;
+}
+.pie-wrap .entry{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* the individual entries */
+.sky-blue{
+  background-color: lightskyblue;
+  height:50%;
+  width: 50%;
+  display: block;
+}
+.light-yellow{
+  background-color: lightyellow;
+  height:50%;
+  width: 50%;
+}
+.pink{
+  background-color: pink;
+  height:50%;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 50%;
+  clip-path: polygon(0 0, 100% 0%, 0% 100%);
+}
+.purple{
+  background-color: purple;
+  height:50%;
+  width: 50%;
+  right: 0;
+  top: 0;
+  position: absolute;
+  clip-path:polygon(0% 100%, 100% 0%, 100% 100%);
+}
+.green{
+  background-color: limegreen;
+  height:50%;
+  width: 50%;
+  right: 0;
+  top: 50%;
+  position: absolute;
+  clip-path:polygon(0% 0%, 100% 0%, 100% 100%);
+}
+.wheat{
+  background-color: wheat;
+  height:50%;
+  width: 50%;
+  right: 0;
+  top: 50%;
+  position: absolute;
+  clip-path:polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+/* the entry text styles */
+.pie-wrap .purple p{
+  position: absolute;
+  top: 140px;
+  color: white;
+ }
+ .pie-wrap .purple p:first-child{
+   top: 120px;
+ }
+ .pie-wrap .green p{
+   position: absolute;
+   top: 20px;
+  }
+  .pie-wrap .green p:first-child{
+   top: 0px;
+ }
+  .pie-wrap .pink p, .pie-wrap .wheat p{
+   position: absolute;
+   left: 20px;
+   top: 80px;
+  }
+ .pie-wrap .pink, .pie-wrap .wheat{
+   justify-content: flex-start;
+ }
+ .pie-wrap .pink p:first-child, .pie-wrap .wheat p:first-child{
+   top: 100px;
+ }
+
+ /* hide food name and reveal when hovered on */
+ .entry .entry-value{
+  display: none;
+  transition: all 500ms linear;
+}
+.entry:hover .entry-value{
+  display: block;
+}
+.entry{
+  transition: all 500ms linear ;
+}
+.entry:hover{
+  filter: invert();
+}
+
+/* label style */
+.key-wrap label{
+  display: block;
+  border: 1px solid;
+  width: 50px;
+  text-align: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  visibility: hidden;
+}
+input[type="radio"]{
+  display: none;
+}
+
+/* background colors for the entry keys */
+.rice-label{
+  background-color: lightyellow;
+  visibility: hidden;
+  animation: display-key 500ms 1s  ease forwards;
+}
+.beans-label{
+  background-color: pink;
+  animation: display-key 500ms 1.5s  ease forwards;
+}
+.plantain-label{
+  background-color: purple;
+  color: white;
+  animation: display-key 500ms 2s  ease forwards;
+}
+.potato-label{
+  background-color: limegreen;
+  animation: display-key 500ms 2.5s  ease forwards;
+}
+.yam-label{
+  background-color: wheat;
+  animation: display-key 500ms 3s  ease forwards;
+}
+.pasta-label{
+  background-color: skyblue;
+  animation: display-key 500ms 3.5s  ease forwards;
+}
+
+/* the texts displayed below */
+.text{
+  display: none;
+  margin-left: -50px;
+  position: absolute;
+  margin-top: 50px;
+  font-size: 20px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  border-bottom: 5px solid ;
+  border-top: 5px solid ;
+}
+.key-wrap label:active{
+  opacity: .5;
+}
+.rice-key:checked ~ .rice-text, .beans-key:checked ~ .beans-text, .plantain-key:checked ~ .plantain-text,  .potato-key:checked ~ .potato-text, .yam-key:checked ~ .yam-text, .pasta-key:checked ~ .pasta-text{
+ display: block;
+}
+
+.rice-text{
+  border-color: black;
+}
+.beans-text{
+  border-color:  pink;
+}
+.plantain-text{
+  border-color:  purple;
+}
+.potato-text{
+  border-color:  limegreen;
+}
+.yam-text{
+  border-color:  wheat;
+}
+.pasta-text{
+  border-color:  skyblue;
+}
+
+
+/* animation styles */
+@keyframes pie-size {
+  from{
+    width:0px;
+  }
+  to{
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@keyframes display-key {
+  from{
+    visibility: hidden;
+  }
+  to{
+    visibility: visible;
+  }
+}

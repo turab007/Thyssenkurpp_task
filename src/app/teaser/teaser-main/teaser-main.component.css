@@ -18,7 +18,7 @@ img {
 #containerDiv {
   display: flex;
   flex-wrap: wrap;
-  /* max-width: 1200px; */
+  max-width: 1700px;
 }
 
 #containerDiv > div {
@@ -38,4 +38,19 @@ img {
 button > mat-icon {
   margin-left: 0;
   margin-right: 0;
+}
+
+.fab-button
+{
+  position: absolute;
+  right: 50px;
+  bottom: 20px;
+}
+
+
+.fab-button button {
+  height: 65px;
+  border-radius: 130px;
+  background-color: #3333b9;
+  color: white;
 }
